@@ -1,0 +1,740 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <!-- refer basic xsds -->
+  <xsd:include schemaLocation="../file.xsd" />
+  <xsd:include schemaLocation="../info.xsd" />
+  <xsd:include schemaLocation="../unit.xsd" />
+  <!-- main xsd -->
+  <xsd:element name="SIC-ceramic-coating-expr">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="information">
+          <xsd:complexType>
+            <xsd:complexContent>
+              <xsd:extension base="info">
+                <xsd:sequence>
+                  <xsd:element name="coating-name" type="xsd:string" />
+                  <xsd:element name="number" type="xsd:string" />
+                </xsd:sequence>
+              </xsd:extension>
+            </xsd:complexContent>
+          </xsd:complexType>
+        </xsd:element>
+        <xsd:element name="raw-material" type="raw-material" minOccurs="0" />
+        <xsd:element name="coating-preparation" type="coating-preparation" minOccurs="0" />
+        <xsd:element name="micro-structures" type="micro-structures" minOccurs="0" />
+        <xsd:element name="performance" type="performance" minOccurs="0" />
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <!-- raw-material -->
+  <xsd:complexType name="raw-material">
+    <xsd:sequence>
+      <xsd:element name="source" type="xsd:string" minOccurs="0" />
+      <xsd:element name="preparation-method" type="xsd:string" minOccurs="0" />
+      <xsd:element name="chemical-composition" minOccurs="0">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="table" minOccurs="0">
+              <xsd:complexType>
+                <xsd:sequence>
+                  <xsd:element name="table-record" maxOccurs="unbounded">
+                    <xsd:complexType>
+                      <xsd:sequence>
+                        <xsd:element name="element" type="xsd:string" />
+                        <xsd:element name="weight" type="percent" />
+                        <xsd:element name="atomic" type="percent" />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="attachment" type="file-list" minOccurs="0" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="phase-composition" minOccurs="0">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="table" minOccurs="0">
+              <xsd:complexType>
+                <xsd:sequence>
+                  <xsd:element name="table-record" maxOccurs="unbounded">
+                    <xsd:complexType>
+                      <xsd:sequence>
+                        <xsd:element name="phase" type="xsd:string" />
+                        <xsd:element name="proportion" type="percent" />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="attachment" type="file-list" minOccurs="0" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="elemental-valence-state" minOccurs="0">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="table" minOccurs="0">
+              <xsd:complexType>
+                <xsd:sequence>
+                  <xsd:element name="table-record" maxOccurs="unbounded">
+                    <xsd:complexType>
+                      <xsd:sequence>
+                        <xsd:element name="name" type="xsd:string" />
+                        <xsd:element name="atomic" type="percent" />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="attachment" type="file-list" minOccurs="0" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="morphology-of-powders" type="file-list" minOccurs="0" />
+      <xsd:element name="particle-size" type="micrometer" minOccurs="0" />
+      <xsd:element name="average-particle-size" type="micrometer" minOccurs="0" />
+      <xsd:element name="powder-size-distribution" type="file-list" minOccurs="0" />
+      <xsd:element name="apparent-density-of-powders" minOccurs="0">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="value" type="xsd:float" />
+            <xsd:element name="unit" type="xsd:string" fixed="g/cm^3" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <!-- coating-preparation -->
+  <xsd:complexType name="coating-preparation">
+    <xsd:sequence>
+      <xsd:element name="preparation-method" type="xsd:string" minOccurs="0" />
+      <xsd:element name="current" type="angstrom" minOccurs="0" />
+      <xsd:element name="primary-plasma-gas-Ar" minOccurs="0">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="value" type="xsd:float" />
+            <xsd:element name="unit" type="xsd:string" fixed="L/min" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="secondary-plasma-gas-H2" minOccurs="0">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="value" type="xsd:float" />
+            <xsd:element name="unit" type="xsd:string" fixed="L/min" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="powder-feed-rate" minOccurs="0">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="value" type="xsd:float" />
+            <xsd:element name="unit" type="xsd:string" fixed="r/prm" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="spray-distance" type="millimeter" minOccurs="0" />
+      <xsd:element name="chamber-pressure" minOccurs="0">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="value" type="xsd:float" />
+            <xsd:element name="unit" type="xsd:string" fixed="mbar" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="average-melting-temperature-of-powders" type="degrees-celsius" minOccurs="0" />
+      <xsd:element name="average-melting-velocity-of-powders" minOccurs="0">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="value" type="xsd:float" />
+            <xsd:element name="unit" type="xsd:string" fixed="m/s" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="melting-temperature-and-velocity-change" type="file-list" minOccurs="0" />
+      <xsd:element name="deposition-efficiency" type="percent" minOccurs="0" />
+      <xsd:element name="injector-diameter" type="millimeter" minOccurs="0" />
+      <xsd:element name="injector-angle" type="degrees" minOccurs="0" />
+      <xsd:element name="torch-traverse-speed" minOccurs="0">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="value" type="xsd:float" />
+            <xsd:element name="unit" type="xsd:string" fixed="mm/s" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="coating-thickness" type="micrometer" minOccurs="0" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <!-- micro-structures -->
+  <xsd:complexType name="micro-structures">
+    <xsd:sequence>
+      <xsd:element name="phase-composition-of-coatings" minOccurs="0">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="table" minOccurs="0">
+              <xsd:complexType>
+                <xsd:sequence>
+                  <xsd:element name="table-record" maxOccurs="unbounded">
+                    <xsd:complexType>
+                      <xsd:sequence>
+                        <xsd:element name="phase" type="xsd:string" />
+                        <xsd:element name="proportion" type="percent" />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="attachment" type="file-list" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="chemical-composition-of-coatings" minOccurs="0">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="table" minOccurs="0">
+              <xsd:complexType>
+                <xsd:sequence>
+                  <xsd:element name="record" maxOccurs="unbounded">
+                    <xsd:complexType>
+                      <xsd:sequence>
+                        <xsd:element name="element" type="xsd:string" />
+                        <xsd:element name="weight" type="percent" />
+                        <xsd:element name="atomic" type="percent" />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="attachment" type="file-list" minOccurs="0" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="surface-morphology-of-coatings" type="file-list" minOccurs="0" />
+      <xsd:element name="cross-section-morphology-of-coatings" type="file-list" minOccurs="0" />
+      <xsd:element name="fracture-morphology-of-coatings" type="file-list" minOccurs="0" />
+      <xsd:element name="average-grain-size-of-coatings" type="nanometer" minOccurs="0" />
+      <xsd:element name="EDS-mapping-of-coatings" type="file-list" minOccurs="0" />
+      <xsd:element name="porosity-of-coatings" type="percent" minOccurs="0" />
+      <xsd:element name="pore-distribution-of-coatings" minOccurs="0">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="table" minOccurs="0">
+              <xsd:complexType>
+                <xsd:sequence>
+                  <xsd:element name="table-record" maxOccurs="unbounded">
+                    <xsd:complexType>
+                      <xsd:sequence>
+                        <xsd:element name="size-range-from" type="nanometer" />
+                        <xsd:element name="size-range-to" type="nanometer" />
+                        <xsd:element name="percentage" type="percent" />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="attachment" type="file-list" minOccurs="0" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="horizontal-pore-percentage" type="percent" minOccurs="0" />
+      <xsd:element name="vertical-pore-percentage" type="percent" minOccurs="0" />
+      <xsd:element name="round-hole-percentage" type="percent" minOccurs="0" />
+      <xsd:element name="crack-percentage" type="percent" minOccurs="0" />
+      <xsd:element name="crack-distribution" minOccurs="0">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="tilt-angle-table" minOccurs="0">
+              <xsd:complexType>
+                <xsd:sequence>
+                  <xsd:element name="tilt-angle-table-record" maxOccurs="unbounded">
+                    <xsd:complexType>
+                      <xsd:sequence>
+                        <xsd:element name="tile-angle" type="degrees" />
+                        <xsd:element name="percentage" type="percent" />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="length-table" minOccurs="0">
+              <xsd:complexType>
+                <xsd:sequence>
+                  <xsd:element name="length-table-record" maxOccurs="unbounded">
+                    <xsd:complexType>
+                      <xsd:sequence>
+                        <xsd:element name="length" type="degrees" />
+                        <xsd:element name="percentage" type="percent" />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="attachment" type="file-list" minOccurs="0" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="grain-boundary-density" minOccurs="0">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="value" type="xsd:float" />
+            <xsd:element name="unit" type="xsd:string" fixed="m/μm^2" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="density-of-coatings" minOccurs="0">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="value" type="xsd:float" />
+            <xsd:element name="unit" type="xsd:string" fixed="g/cm^3" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="roughness-of-coatings-Ra" type="micrometer" minOccurs="0" />
+      <xsd:element name="grain-size-distribution-of-coatings" minOccurs="0">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="table" minOccurs="0">
+              <xsd:complexType>
+                <xsd:sequence>
+                  <xsd:element name="table-record" maxOccurs="unbounded">
+                    <xsd:complexType>
+                      <xsd:sequence>
+                        <xsd:element name="diameter" type="micrometer" />
+                        <xsd:element name="percentage" type="percent" />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="attachment" type="file-list" minOccurs="0" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="length-diameter-ratio-distribution-of-coatings" minOccurs="0">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="table" minOccurs="0">
+              <xsd:complexType>
+                <xsd:sequence>
+                  <xsd:element name="table-record" maxOccurs="unbounded">
+                    <xsd:complexType>
+                      <xsd:sequence>
+                        <xsd:element name="LD-ratio" type="xsd:float" />
+                        <xsd:element name="percentage" type="percent" />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="attachment" type="file-list" minOccurs="0" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="phase-distribution-of-coatings" type="file-list" minOccurs="0" />
+      <xsd:element name="orientation-distribution-of-coatings" type="file-list" minOccurs="0" />
+      <xsd:element name="pole-figure-of-coatings" type="file-list" minOccurs="0" />
+      <xsd:element name="inverse-pole-figure-of-coatings" type="file-list" minOccurs="0" />
+      <xsd:element name="information-of-grains-by-EBSD" type="file-list" minOccurs="0" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <!-- performance -->
+  <xsd:complexType name="performance">
+    <xsd:sequence>
+      <xsd:element name="phase-stability" minOccurs="0">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="phase-stability-record" maxOccurs="unbounded">
+              <xsd:complexType>
+                <xsd:sequence>
+                  <xsd:element name="temperature" type="degrees-celsius" />
+                  <xsd:element name="XRD" type="file-list" />
+                  <xsd:element name="SEM" type="file-list" />
+                  <xsd:element name="TEM" type="file-list" />
+                  <xsd:element name="EBSD" type="file-list" />
+                  <xsd:element name="phase-composition" type="xsd:string" />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="thermal-stability-of-coatings" type="file-list" minOccurs="0" />
+      <xsd:element name="heat-insulation" minOccurs="0">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="specific-heat-capacity-at-different-temperatures" minOccurs="0">
+              <xsd:complexType>
+                <xsd:sequence>
+                  <xsd:element name="specific-heat-capacity-record" maxOccurs="unbounded">
+                    <xsd:complexType>
+                      <xsd:sequence>
+                        <xsd:element name="temperature" type="degrees-celsius" />
+                        <xsd:element name="specific-heat-capacity">
+                          <xsd:complexType>
+                            <xsd:sequence>
+                              <xsd:element name="value" type="xsd:float" />
+                              <xsd:element name="unit" type="xsd:string" fixed="J/(g·K)" />
+                            </xsd:sequence>
+                          </xsd:complexType>
+                        </xsd:element>
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="thermal-diffusivity-at-different-temperatures" minOccurs="0">
+              <xsd:complexType>
+                <xsd:sequence>
+                  <xsd:element name="thermal-diffusivity-record" maxOccurs="unbounded">
+                    <xsd:complexType>
+                      <xsd:sequence>
+                        <xsd:element name="temperature" type="degrees-celsius" />
+                        <xsd:element name="thermal-diffusivity">
+                          <xsd:complexType>
+                            <xsd:sequence>
+                              <xsd:element name="value" type="xsd:float" />
+                              <xsd:element name="unit" type="xsd:string" fixed="cm^2/s" />
+                            </xsd:sequence>
+                          </xsd:complexType>
+                        </xsd:element>
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="thermal-conductivity-at-different-temperatures" minOccurs="0">
+              <xsd:complexType>
+                <xsd:sequence>
+                  <xsd:element name="thermal-conductivity-record" maxOccurs="unbounded">
+                    <xsd:complexType>
+                      <xsd:sequence>
+                        <xsd:element name="temperature" type="degrees-celsius" />
+                        <xsd:element name="thermal-conductivity">
+                          <xsd:complexType>
+                            <xsd:sequence>
+                              <xsd:element name="value" type="xsd:float" />
+                              <xsd:element name="unit" type="xsd:string" fixed="W/(m·K)" />
+                            </xsd:sequence>
+                          </xsd:complexType>
+                        </xsd:element>
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="thermal-expansion" minOccurs="0">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="coefficient-of-thermal-expansion-record" maxOccurs="unbounded">
+              <xsd:complexType>
+                <xsd:sequence>
+                  <xsd:element name="temperature-from" type="degrees-celsius" />
+                  <xsd:element name="temperature-to" type="degrees-celsius" />
+                  <xsd:element name="coefficient-of-thermal-expansion">
+                    <xsd:complexType>
+                      <xsd:sequence>
+                        <xsd:element name="value" type="xsd:float" />
+                        <xsd:element name="unit" type="xsd:string" fixed="℃^-1" />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="corrosion-resistance" minOccurs="0">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="corrosion-resistance-record" maxOccurs="unbounded">
+              <xsd:complexType>
+                <xsd:sequence>
+                  <xsd:element name="environment">
+                    <xsd:simpleType>
+                      <xsd:restriction base="xsd:string">
+                        <xsd:enumeration value="salt mist" />
+                        <xsd:enumeration value="10% NaOH" />
+                        <xsd:enumeration value="10% HCl" />
+                      </xsd:restriction>
+                    </xsd:simpleType>
+                  </xsd:element>
+                  <xsd:element name="time" type="hour" />
+                  <xsd:element name="cumulative-weight-loss">
+                    <xsd:complexType>
+                      <xsd:sequence>
+                        <xsd:element name="value" type="xsd:float" />
+                        <xsd:element name="unit" type="xsd:string" fixed="g·cm^-2" />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="corrosion-resistance-in-water-vapor" minOccurs="0">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="corrosion-resistance-in-water-vapor-record" maxOccurs="unbounded">
+              <xsd:complexType>
+                <xsd:sequence>
+                  <xsd:element name="temperature" type="degrees-celsius" />
+                  <xsd:element name="time" type="hour" />
+                  <xsd:element name="mass-loss-rate" type="percent" />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="mechanical-property" minOccurs="0">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="vickers-hardness-Hv" type="gigapascal" minOccurs="0" />
+            <xsd:element name="knoop-hardness-Hk" type="gigapascal" minOccurs="0" />
+            <xsd:element name="fracture-toughness-Kic" minOccurs="0">
+              <xsd:complexType>
+                <xsd:sequence>
+                  <xsd:element name="value" type="xsd:float" />
+                  <xsd:element name="unit" type="xsd:string" fixed="MPa·m^(1/2)" />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="youngs-modulus-E" type="gigapascal" minOccurs="0" />
+            <xsd:element name="bulk-modulus-B" type="gigapascal" minOccurs="0" />
+            <xsd:element name="shear-modulus-G" type="gigapascal" minOccurs="0" />
+            <xsd:element name="flexure-strength-sigma" type="megapascal" minOccurs="0" />
+            <xsd:element name="bond-strength" type="megapascal" minOccurs="0" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="abrasion-resistance" minOccurs="0">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="friction-coefficient-under-varying-load-and-rotating-speed" minOccurs="0">
+              <xsd:complexType>
+                <xsd:sequence>
+                  <xsd:element name="friction-coefficient-record" maxOccurs="unbounded">
+                    <xsd:complexType>
+                      <xsd:sequence>
+                        <xsd:element name="load" type="newton" />
+                        <xsd:element name="rotating-speed">
+                          <xsd:complexType>
+                            <xsd:sequence>
+                              <xsd:element name="value" type="xsd:float" />
+                              <xsd:element name="unit" type="xsd:string" fixed="r/min" />
+                            </xsd:sequence>
+                          </xsd:complexType>
+                        </xsd:element>
+                        <xsd:element name="friction-coefficient" type="xsd:float" />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="wear-rate-under-varying-load-and-rotating-speed" minOccurs="0">
+              <xsd:complexType>
+                <xsd:sequence>
+                  <xsd:element name="wear-rate-record" maxOccurs="unbounded">
+                    <xsd:complexType>
+                      <xsd:sequence>
+                        <xsd:element name="load" type="newton" />
+                        <xsd:element name="rotating-speed">
+                          <xsd:complexType>
+                            <xsd:sequence>
+                              <xsd:element name="value" type="xsd:float" />
+                              <xsd:element name="unit" type="xsd:string" fixed="r/min" />
+                            </xsd:sequence>
+                          </xsd:complexType>
+                        </xsd:element>
+                        <xsd:element name="wear-rate">
+                          <xsd:complexType>
+                            <xsd:sequence>
+                              <xsd:element name="value" type="xsd:float" />
+                              <xsd:element name="unit" type="xsd:string" fixed="mg/h" />
+                            </xsd:sequence>
+                          </xsd:complexType>
+                        </xsd:element>
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="thermal-shock-resistance" minOccurs="0">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="coating-surface-after-thermal-cycle" minOccurs="0">
+              <xsd:complexType>
+                <xsd:sequence>
+                  <xsd:element name="coating-surface-after-thermal-cycle-record" maxOccurs="unbounded">
+                    <xsd:complexType>
+                      <xsd:sequence>
+                        <xsd:element name="thermal-cycle-times" type="xsd:float" />
+                        <xsd:element name="surface-morphology" type="file-list" />
+                        <xsd:element name="peeling-off-area" type="percent" />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="temperature-change-of-coating-surface-and-substrate-during-thermal-cycle" minOccurs="0">
+              <xsd:complexType>
+                <xsd:sequence>
+                  <xsd:element name="temperature-change-of-coating-surface-and-substrate-during-thermal-cycle-record" maxOccurs="unbounded">
+                    <xsd:complexType>
+                      <xsd:sequence>
+                        <xsd:element name="flame-temperature" type="degrees-celsius" />
+                        <xsd:element name="temperature-change-of-coating-surface" type="file-list" />
+                        <xsd:element name="temperature-change-of-substrate" type="file-list" />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="thermal-cycle-lifetime" minOccurs="0">
+              <xsd:complexType>
+                <xsd:sequence>
+                  <xsd:element name="thermal-cycle-lifetime-record" maxOccurs="unbounded">
+                    <xsd:complexType>
+                      <xsd:sequence>
+                        <xsd:element name="temperature-from" type="degrees-celsius" />
+                        <xsd:element name="temperature-to" type="degrees-celsius" />
+                        <xsd:element name="times" type="xsd:float" />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ablation-resistance" minOccurs="0">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="ablated-by-plasma-flame" minOccurs="0">
+              <xsd:complexType>
+                <xsd:sequence>
+                  <xsd:element name="ablation-by-plasma-flame-record" maxOccurs="unbounded">
+                    <xsd:complexType>
+                      <xsd:sequence>
+                        <xsd:element name="heat-flux">
+                          <xsd:complexType>
+                            <xsd:sequence>
+                              <xsd:element name="value" type="xsd:float" />
+                              <xsd:element name="unit" type="xsd:string" fixed="MW/m^2" />
+                            </xsd:sequence>
+                          </xsd:complexType>
+                        </xsd:element>
+                        <xsd:element name="time" type="second" />
+                        <xsd:element name="linear-ablative-rate">
+                          <xsd:complexType>
+                            <xsd:sequence>
+                              <xsd:element name="value" type="xsd:float" />
+                              <xsd:element name="unit" type="xsd:string" fixed="mm/s" />
+                            </xsd:sequence>
+                          </xsd:complexType>
+                        </xsd:element>
+                        <xsd:element name="mass-ablative-rate">
+                          <xsd:complexType>
+                            <xsd:sequence>
+                              <xsd:element name="value" type="xsd:float" />
+                              <xsd:element name="unit" type="xsd:string" fixed="g/s" />
+                            </xsd:sequence>
+                          </xsd:complexType>
+                        </xsd:element>
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="ablated-by-laser" minOccurs="0">
+              <xsd:complexType>
+                <xsd:sequence>
+                  <xsd:element name="ablation-by-laser-record" maxOccurs="unbounded">
+                    <xsd:complexType>
+                      <xsd:sequence>
+                        <xsd:element name="heat-flux">
+                          <xsd:complexType>
+                            <xsd:sequence>
+                              <xsd:element name="value" type="xsd:float" />
+                              <xsd:element name="unit" type="xsd:string" fixed="MW/m^2" />
+                            </xsd:sequence>
+                          </xsd:complexType>
+                        </xsd:element>
+                        <xsd:element name="power" type="watt" />
+                        <xsd:element name="power-time" type="second" />
+                        <xsd:element name="time" type="second" />
+                        <xsd:element name="linear-ablative-rate">
+                          <xsd:complexType>
+                            <xsd:sequence>
+                              <xsd:element name="value" type="xsd:float" />
+                              <xsd:element name="unit" type="xsd:string" fixed="mm/s" />
+                            </xsd:sequence>
+                          </xsd:complexType>
+                        </xsd:element>
+                        <xsd:element name="mass-ablative-rate">
+                          <xsd:complexType>
+                            <xsd:sequence>
+                              <xsd:element name="value" type="xsd:float" />
+                              <xsd:element name="unit" type="xsd:string" fixed="g/s" />
+                            </xsd:sequence>
+                          </xsd:complexType>
+                        </xsd:element>
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="oxidation-resistance" minOccurs="0">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="oxidation-resistance-record" maxOccurs="unbounded">
+              <xsd:complexType>
+                <xsd:sequence>
+                  <xsd:element name="static-air-environment" type="degrees-celsius" />
+                  <xsd:element name="time" type="hour" />
+                  <xsd:element name="mass-loss-or-gain-rate" type="percent" />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

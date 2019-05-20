@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <!-- refer basic xsds -->
+  <xsd:include schemaLocation="../file.xsd" />
+  <xsd:include schemaLocation="../info.xsd" />
+  <xsd:include schemaLocation="../unit.xsd" />
+  <!-- main xsd -->
+  <xsd:element name="SIC-ceramic-coating-calc">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="information">
+          <xsd:complexType>
+            <xsd:complexContent>
+              <xsd:extension base="info">
+                <xsd:sequence>
+                  <xsd:element name="chemical-formula" type="xsd:string" />
+                  <xsd:element name="name" type="xsd:string" />
+                  <xsd:element name="number" type="xsd:string" />
+                  <xsd:element name="calculation-method" type="xsd:string" />
+                  <xsd:element name="calculation-software" type="xsd:string" />
+                </xsd:sequence>
+              </xsd:extension>
+            </xsd:complexContent>
+          </xsd:complexType>
+        </xsd:element>
+        <xsd:element name="structure" minOccurs="0">
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element name="crystal-structure" type="file-list" minOccurs="0" />
+              <xsd:element name="lattice-parameter" minOccurs="0">
+                <xsd:complexType>
+                  <xsd:sequence>
+                    <xsd:element name="a" type="angstrom" minOccurs="0" />
+                    <xsd:element name="b" type="angstrom" minOccurs="0" />
+                    <xsd:element name="c" type="angstrom" minOccurs="0" />
+                    <xsd:element name="alpha" type="degrees" minOccurs="0" />
+                    <xsd:element name="beta" type="degrees" minOccurs="0" />
+                    <xsd:element name="gamma" type="degrees" minOccurs="0" />
+                  </xsd:sequence>
+                </xsd:complexType>
+              </xsd:element>
+              <xsd:element name="bond-lengths" minOccurs="0">
+                <xsd:complexType>
+                  <xsd:sequence>
+                    <xsd:element name="bond-lengths-record" maxOccurs="unbounded">
+                      <xsd:complexType>
+                        <xsd:sequence>
+                          <xsd:element name="bond" type="xsd:string" />
+                          <xsd:element name="length" type="angstrom" />
+                        </xsd:sequence>
+                      </xsd:complexType>
+                    </xsd:element>
+                  </xsd:sequence>
+                </xsd:complexType>
+              </xsd:element>
+              <xsd:element name="bond-angles" minOccurs="0">
+                <xsd:complexType>
+                  <xsd:sequence>
+                    <xsd:element name="bond-angles-record" maxOccurs="unbounded">
+                      <xsd:complexType>
+                        <xsd:sequence>
+                          <xsd:element name="bond" type="xsd:string" />
+                          <xsd:element name="angle" type="degrees" />
+                        </xsd:sequence>
+                      </xsd:complexType>
+                    </xsd:element>
+                  </xsd:sequence>
+                </xsd:complexType>
+              </xsd:element>
+              <xsd:element name="fermi-energy" type="file-list" minOccurs="0" />
+              <xsd:element name="partial-density-of-states" type="file-list" minOccurs="0" />
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+        <xsd:element name="elastic-constants" minOccurs="0">
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element name="elastic-constants-records" maxOccurs="unbounded">
+                <xsd:complexType>
+                  <xsd:sequence>
+                    <xsd:element name="elastic-constant" type="xsd:string" />
+                    <xsd:element name="value" type="gigapascal" />
+                  </xsd:sequence>
+                </xsd:complexType>
+              </xsd:element>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+        <xsd:element name="mechanical-properties" minOccurs="0">
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element name="bulk-modulus" type="gigapascal" minOccurs="0" />
+              <xsd:element name="shear-modulus" type="gigapascal" minOccurs="0" />
+              <xsd:element name="youngs-modulus" type="gigapascal" minOccurs="0" />
+              <xsd:element name="poissons-ratio" type="gigapascal" minOccurs="0" />
+              <xsd:element name="zener-anisotroy-ratio" type="gigapascal" minOccurs="0" />
+              <xsd:element name="anisotropic-youngs-modulus" type="file-list" minOccurs="0" />
+              <xsd:element name="maximum-youngs-modulus" minOccurs="0">
+                <xsd:complexType>
+                  <xsd:sequence>
+                    <xsd:element name="value" type="gigapascal" />
+                    <xsd:element name="direction" type="xsd:string" />
+                  </xsd:sequence>
+                </xsd:complexType>
+              </xsd:element>
+              <xsd:element name="minimum-youngs-modulus" minOccurs="0">
+                <xsd:complexType>
+                  <xsd:sequence>
+                    <xsd:element name="value" type="gigapascal" />
+                    <xsd:element name="direction" type="xsd:string" />
+                  </xsd:sequence>
+                </xsd:complexType>
+              </xsd:element>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+        <xsd:element name="structural-stability" minOccurs="0">
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element name="changes-in-the-x-coordinate-versus-pressures" minOccurs="0">
+                <xsd:complexType>
+                  <xsd:sequence>
+                    <xsd:element name="table" minOccurs="0">
+                      <xsd:complexType>
+                        <xsd:sequence>
+                          <xsd:element name="table-record" maxOccurs="unbounded">
+                            <xsd:complexType>
+                              <xsd:sequence>
+                                <xsd:element name="pressure" type="gigapascal" />
+                                <xsd:element name="x-coordinate" type="xsd:float" />
+                              </xsd:sequence>
+                            </xsd:complexType>
+                          </xsd:element>
+                        </xsd:sequence>
+                      </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="attachment" type="file-list" minOccurs="0" />
+                  </xsd:sequence>
+                </xsd:complexType>
+              </xsd:element>
+              <xsd:element name="bond-length-at-various-pressures" minOccurs="0">
+                <xsd:complexType>
+                  <xsd:sequence>
+                    <xsd:element name="table" minOccurs="0">
+                      <xsd:complexType>
+                        <xsd:sequence>
+                          <xsd:element name="table-record" maxOccurs="unbounded">
+                            <xsd:complexType>
+                              <xsd:sequence>
+                                <xsd:element name="pressure" type="gigapascal" />
+                                <xsd:element name="bond" type="xsd:string" />
+                                <xsd:element name="bond-length" type="angstrom" />
+                              </xsd:sequence>
+                            </xsd:complexType>
+                          </xsd:element>
+                        </xsd:sequence>
+                      </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="attachment" type="file-list" minOccurs="0" />
+                  </xsd:sequence>
+                </xsd:complexType>
+              </xsd:element>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+        <xsd:element name="elastic-stiffness-at-high-pressures" minOccurs="0">
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element name="pressure-dependent-elastic-constants" minOccurs="0">
+                <xsd:complexType>
+                  <xsd:sequence>
+                    <xsd:element name="table" minOccurs="0">
+                      <xsd:complexType>
+                        <xsd:sequence>
+                          <xsd:element name="table-record" maxOccurs="unbounded">
+                            <xsd:complexType>
+                              <xsd:sequence>
+                                <xsd:element name="pressure" type="gigapascal" />
+                                <xsd:element name="C11" type="gigapascal" />
+                                <xsd:element name="C12" type="gigapascal" />
+                                <xsd:element name="C44" type="gigapascal" />
+                              </xsd:sequence>
+                            </xsd:complexType>
+                          </xsd:element>
+                        </xsd:sequence>
+                      </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="attachment" type="file-list" minOccurs="0" />
+                  </xsd:sequence>
+                </xsd:complexType>
+              </xsd:element>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+        <xsd:element name="mechanical-properties-at-high-pressures" minOccurs="0">
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element name="pressure-dependent-mechanical-properties" minOccurs="0">
+                <xsd:complexType>
+                  <xsd:sequence>
+                    <xsd:element name="table" minOccurs="0">
+                      <xsd:complexType>
+                        <xsd:sequence>
+                          <xsd:element name="table-record" maxOccurs="unbounded">
+                            <xsd:complexType>
+                              <xsd:sequence>
+                                <xsd:element name="pressure" type="gigapascal" />
+                                <xsd:element name="bulk-modulus" type="gigapascal" />
+                                <xsd:element name="shear-modulus" type="gigapascal" />
+                                <xsd:element name="youngs-modulus" type="gigapascal" />
+                              </xsd:sequence>
+                            </xsd:complexType>
+                          </xsd:element>
+                        </xsd:sequence>
+                      </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="attachment" type="file-list" minOccurs="0" />
+                  </xsd:sequence>
+                </xsd:complexType>
+              </xsd:element>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+        <xsd:element name="thermal-properties" minOccurs="0">
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element name="shear-sound-velocity" minOccurs="0">
+                <xsd:complexType>
+                  <xsd:sequence>
+                    <xsd:element name="value" type="xsd:float" />
+                    <xsd:element name="unit" type="xsd:string" fixed="cm/s" />
+                  </xsd:sequence>
+                </xsd:complexType>
+              </xsd:element>
+              <xsd:element name="longitudinal-sound-velocity" minOccurs="0">
+                <xsd:complexType>
+                  <xsd:sequence>
+                    <xsd:element name="value" type="xsd:float" />
+                    <xsd:element name="unit" type="xsd:string" fixed="cm/s" />
+                  </xsd:sequence>
+                </xsd:complexType>
+              </xsd:element>
+              <xsd:element name="average-sound-velocity" minOccurs="0">
+                <xsd:complexType>
+                  <xsd:sequence>
+                    <xsd:element name="value" type="xsd:float" />
+                    <xsd:element name="unit" type="xsd:string" fixed="cm/s" />
+                  </xsd:sequence>
+                </xsd:complexType>
+              </xsd:element>
+              <xsd:element name="the-minimum-thermal-conductivity" minOccurs="0">
+                <xsd:complexType>
+                  <xsd:sequence>
+                    <xsd:element name="value" type="xsd:float" />
+                    <xsd:element name="unit" type="xsd:string" fixed="W/(m·K)" />
+                  </xsd:sequence>
+                </xsd:complexType>
+              </xsd:element>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>
