@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <xsd:complexType name="info">
+        <xsd:sequence>
+            <xsd:element name="data-source" type="xsd:string"/>
+            <xsd:element name="upload-date" type="xsd:date"/>
+            <xsd:element name="doi" type="xsd:string"/>
+        </xsd:sequence>
+    </xsd:complexType>
+</xsd:schema>

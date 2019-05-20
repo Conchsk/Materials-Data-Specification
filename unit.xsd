@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <!-- basic -->
+  <xsd:complexType name="percent">
+    <xsd:sequence>
+      <xsd:element name="value" type="xsd:float" />
+      <xsd:element name="unit" type="xsd:string" fixed="%" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="weight-percent">
+    <xsd:sequence>
+      <xsd:element name="value" type="xsd:float" />
+      <xsd:element name="unit" type="xsd:string" fixed="wt.%" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="magnification">
+    <xsd:sequence>
+      <xsd:element name="value" type="xsd:float" />
+      <xsd:element name="unit" type="xsd:string" fixed="X" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <!-- angle -->
+  <xsd:complexType name="degrees">
+    <xsd:sequence>
+      <xsd:element name="value" type="xsd:float" />
+      <xsd:element name="unit" type="xsd:string" fixed="°" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <!-- temperature -->
+  <xsd:complexType name="degrees-celsius">
+    <xsd:sequence>
+      <xsd:element name="value" type="xsd:float" />
+      <xsd:element name="unit" type="xsd:string" fixed="℃" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <!-- time -->
+  <xsd:complexType name="day">
+    <xsd:sequence>
+      <xsd:element name="value" type="xsd:float" />
+      <xsd:element name="unit" type="xsd:string" fixed="d" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="hour">
+    <xsd:sequence>
+      <xsd:element name="value" type="xsd:float" />
+      <xsd:element name="unit" type="xsd:string" fixed="h" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="minute">
+    <xsd:sequence>
+      <xsd:element name="value" type="xsd:float" />
+      <xsd:element name="unit" type="xsd:string" fixed="min" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="second">
+    <xsd:sequence>
+      <xsd:element name="value" type="xsd:float" />
+      <xsd:element name="unit" type="xsd:string" fixed="s" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="millisecond">
+    <xsd:sequence>
+      <xsd:element name="value" type="xsd:float" />
+      <xsd:element name="unit" type="xsd:string" fixed="ms" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="microsecond">
+    <xsd:sequence>
+      <xsd:element name="value" type="xsd:float" />
+      <xsd:element name="unit" type="xsd:string" fixed="μs" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <!-- length -->
+  <xsd:complexType name="kilometer">
+    <xsd:sequence>
+      <xsd:element name="value" type="xsd:float" />
+      <xsd:element name="unit" type="xsd:string" fixed="km" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="meter">
+    <xsd:sequence>
+      <xsd:element name="value" type="xsd:float" />
+      <xsd:element name="unit" type="xsd:string" fixed="m" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="decimeter">
+    <xsd:sequence>
+      <xsd:element name="value" type="xsd:float" />
+      <xsd:element name="unit" type="xsd:string" fixed="dm" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="centimeter">
+    <xsd:sequence>
+      <xsd:element name="value" type="xsd:float" />
+      <xsd:element name="unit" type="xsd:string" fixed="cm" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="millimeter">
+    <xsd:sequence>
+      <xsd:element name="value" type="xsd:float" />
+      <xsd:element name="unit" type="xsd:string" fixed="mm" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="micrometer">
+    <xsd:sequence>
+      <xsd:element name="value" type="xsd:float" />
+      <xsd:element name="unit" type="xsd:string" fixed="μm" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="angstrom">
+    <xsd:sequence>
+      <xsd:element name="value" type="xsd:float" />
+      <xsd:element name="unit" type="xsd:string" fixed="Å" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="nanometer">
+    <xsd:sequence>
+      <xsd:element name="value" type="xsd:float" />
+      <xsd:element name="unit" type="xsd:string" fixed="nm" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <!-- Mass -->
+  <xsd:complexType name="kilogram">
+    <xsd:sequence>
+      <xsd:element name="value" type="xsd:float" />
+      <xsd:element name="unit" type="xsd:string" fixed="kg" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="gram">
+    <xsd:sequence>
+      <xsd:element name="value" type="xsd:float" />
+      <xsd:element name="unit" type="xsd:string" fixed="g" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="milligram">
+    <xsd:sequence>
+      <xsd:element name="value" type="xsd:float" />
+      <xsd:element name="unit" type="xsd:string" fixed="mg" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <!-- Force -->
+  <xsd:complexType name="newton">
+    <xsd:sequence>
+      <xsd:element name="value" type="xsd:float" />
+      <xsd:element name="unit" type="xsd:string" fixed="N" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <!-- Voltage -->
+  <xsd:complexType name="kilovolt">
+    <xsd:sequence>
+      <xsd:element name="value" type="xsd:float" />
+      <xsd:element name="unit" type="xsd:string" fixed="kV" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="volt">
+    <xsd:sequence>
+      <xsd:element name="value" type="xsd:float" />
+      <xsd:element name="unit" type="xsd:string" fixed="V" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="millivolt">
+    <xsd:sequence>
+      <xsd:element name="value" type="xsd:float" />
+      <xsd:element name="unit" type="xsd:string" fixed="mV" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <!-- Current -->
+  <xsd:complexType name="ampere">
+    <xsd:sequence>
+      <xsd:element name="value" type="xsd:float" />
+      <xsd:element name="unit" type="xsd:string" fixed="A" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="milliampere">
+    <xsd:sequence>
+      <xsd:element name="value" type="xsd:float" />
+      <xsd:element name="unit" type="xsd:string" fixed="mA" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <!-- Power -->
+  <xsd:complexType name="megawatt">
+    <xsd:sequence>
+      <xsd:element name="value" type="xsd:float" />
+      <xsd:element name="unit" type="xsd:string" fixed="mW" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="kilowatt">
+    <xsd:sequence>
+      <xsd:element name="value" type="xsd:float" />
+      <xsd:element name="unit" type="xsd:string" fixed="kW" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="watt">
+    <xsd:sequence>
+      <xsd:element name="value" type="xsd:float" />
+      <xsd:element name="unit" type="xsd:string" fixed="W" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="milliwatt">
+    <xsd:sequence>
+      <xsd:element name="value" type="xsd:float" />
+      <xsd:element name="unit" type="xsd:string" fixed="mW" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <!-- Stress -->
+  <xsd:complexType name="gigapascal">
+    <xsd:sequence>
+      <xsd:element name="value" type="xsd:float" />
+      <xsd:element name="unit" type="xsd:string" fixed="GPa" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="megapascal">
+    <xsd:sequence>
+      <xsd:element name="value" type="xsd:float" />
+      <xsd:element name="unit" type="xsd:string" fixed="MPa" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="kilopascal">
+    <xsd:sequence>
+      <xsd:element name="value" type="xsd:float" />
+      <xsd:element name="unit" type="xsd:string" fixed="kPa" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="pascal">
+    <xsd:sequence>
+      <xsd:element name="value" type="xsd:float" />
+      <xsd:element name="unit" type="xsd:string" fixed="Pa" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <!-- Frequency -->
+  <xsd:complexType name="gigahertz">
+    <xsd:sequence>
+      <xsd:element name="value" type="xsd:float" />
+      <xsd:element name="unit" type="xsd:string" fixed="GHz" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="megahertz">
+    <xsd:sequence>
+      <xsd:element name="value" type="xsd:float" />
+      <xsd:element name="unit" type="xsd:string" fixed="MHz" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="kilohertz">
+    <xsd:sequence>
+      <xsd:element name="value" type="xsd:float" />
+      <xsd:element name="unit" type="xsd:string" fixed="kHz" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="hertz">
+    <xsd:sequence>
+      <xsd:element name="value" type="xsd:float" />
+      <xsd:element name="unit" type="xsd:string" fixed="Hz" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <!-- Magnetic flux density -->
+  <xsd:complexType name="tesla">
+    <xsd:sequence>
+      <xsd:element name="value" type="xsd:float" />
+      <xsd:element name="unit" type="xsd:string" fixed="T" />
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>
